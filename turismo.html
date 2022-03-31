@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Practica 2 - VUE</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <style>
+            .h1 {
+            background-color: #fef9ef; 
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            
+            .b1:hover {
+            background-color: #17c3b2;
+            }
+         </style>
+
+        <br>
+        <br>
+
+        <div class="container">
+            <h3>Kenia Gabriela Sanchez Duran A01244940</h3>
+            <div class="row align-items-start">
+                <div class="col">
+                    <div id="informacion">
+                        <h1>Lugares que me gustaría visitar</h1>
+                        <button class="b1"  @click="show = !show">
+                            <span v-if="show">Esconder</span>
+                           <span v-else>Mostrar</span>
+                       </button> 
+                       <br><br><br>
+                       <img style="width:250px" src="https://i.pinimg.com/564x/7a/bc/83/7abc830f4b136b442d53092cb544955d.jpg" alt="Grecia" v-if="show"></img>
+                        <p v-show="show"><strong>Grecia</strong></p>
+                        <img style="width:250px" src="https://i.pinimg.com/564x/8d/6d/d3/8d6dd359cb94e1cf1835b15f20d3c4db.jpg" alt="Kenia" v-if="show"></img>
+                        <p v-show="show"><strong>Kenia</strong></p>
+                        <img style="width:250px" src="https://i.pinimg.com/564x/63/30/e1/6330e11ac2657b69f36e72313dcdf9bb.jpg" alt="Corea" v-if="show"></img>
+                        <p v-show="show"><strong>Corea</strong></p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div id = "Done">
+                        <h1>Lugares que ya he ido</h1>
+                        <li v-for="msg in bucl">
+                            {{ msg.message }}
+                            <img v-bind:src = "msg.image" width ="250px">
+                        </li>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div id = "Destino">
+                        <h1>Siguiente destino</h1>
+                        <p>El siguiente destino es: {{mensaje}}</p>
+                        <input v-model="mensaje" placeholder="Siguiente destino"/>
+                        <img style="width:250px" src="https://www.guanacasteairport.com/wp-content/uploads/2019/10/vuelos-y-destinos-big.jpg" alt="Grecia" v-if="show"></img>
+
+                        <br><br><br>
+                        <h2>Click para una sorpresa</h2>
+                        <button class="b1" v-on:click="Alerta('Nueva York')">CLICK</button>
+
+                    </div>
+                </div>
+        </div>
+
+            <!--<script src="https://unpkg.com/vue@3"></script>-->
+            <script src="turismo.js"></script>
+        </body>
+</html>
